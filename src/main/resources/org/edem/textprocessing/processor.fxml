@@ -18,30 +18,38 @@
       <MenuBar />
       <VBox prefHeight="687.0" prefWidth="490.0" spacing="14.0">
          <children>
+            <VBox prefHeight="147.0" prefWidth="490.0">
+               <children>
+                  <Label text="Text" />
+                  <TextArea fx:id="text" prefHeight="94.0" prefWidth="490.0" promptText="Enter text here" wrapText="true" />
+                  <Label fx:id="error_text_regex" textFill="RED" />
+               </children>
+            </VBox>
+            <TextFlow fx:id="result" opacity="1.0" prefHeight="115.0" prefWidth="350.0" style="-fx-border-width: 0.15px; -fx-border-style: solid;" />
+            <Label text="Regex" />
             <TextArea fx:id="regex" prefHeight="23.0" prefWidth="490.0" promptText="Enter regex here" wrapText="true" />
-            <Label fx:id="error_text_regex" layoutX="10.0" layoutY="233.0" textFill="RED" />
-            <TextArea fx:id="text" layoutX="10.0" layoutY="61.0" prefHeight="94.0" prefWidth="490.0" promptText="Enter text here" wrapText="true" />
             <Label fx:id="error_text" layoutX="10.0" layoutY="241.0" textFill="RED" />
-            <TextArea fx:id="replacetext" layoutX="10.0" layoutY="10.0" prefHeight="23.0" prefWidth="490.0" promptText="Enter replacement here" wrapText="true" />
-            <Label fx:id="replace_error_text" textFill="RED" />
+            <VBox prefHeight="114.0" prefWidth="490.0">
+               <children>
+                  <Label text="Replacement" />
+                  <TextArea fx:id="replacetext" prefHeight="23.0" prefWidth="490.0" promptText="Enter replacement here" wrapText="true" />
+                  <Label fx:id="replace_error_text" textFill="RED" />
+               </children>
+            </VBox>
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="350.0" spacing="60.0">
                <children>
                   <Button fx:id="search" mnemonicParsing="false" onMouseClicked="#search" text="Search" />
                   <Button fx:id="replace" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#replace" text="Replace" />
                   <Button fx:id="match" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#match" text="Match" />
                   <Button fx:id="save" layoutX="116.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#savetolist" text="Save" />
+                  <Button fx:id="delete" mnemonicParsing="false" onMouseClicked="#deletefromlist" text="Delete" />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <TextFlow fx:id="result" opacity="0.16" prefHeight="115.0" prefWidth="350.0" style="-fx-border-width: 2px; -fx-border-style: solid;" />
-            <ListView fx:id="listview" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listview" editable="true" prefHeight="200.0" prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="350.0" spacing="60.0">
-               <children>
-                  <Button fx:id="delete" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#deletefromlist" text="Delete" />
-                  <Button fx:id="update" layoutX="116.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#search" text="Update" />
-               </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
